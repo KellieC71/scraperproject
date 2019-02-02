@@ -2,26 +2,19 @@
   "name": "scrapingstinks",
   "version": "1.0.0",
   "description": "scraper",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "npm install",
     "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KellieC71/scrapingstinks.git"
   },
   "keywords": [
     "sc"
   ],
   "author": "kc",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KellieC71/scrapingstinks/issues"
-  },
-  "homepage": "https://github.com/KellieC71/scrapingstinks#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",

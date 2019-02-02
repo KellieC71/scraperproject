@@ -8,15 +8,16 @@ var db = require("./models");
 var databaseURL = "scraper"
 var collections = ["scrapedata"];
 var PORT = 3000;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater";
 // app.use(logger("dev"));
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 app.get("/scrape", function (req, res) {
   axios.get("https://news.ycombinator.com//").then(function (response) {
-    
+
     //Where is html created? You're using it here but I don't see where you got html. As of now this doesn't load anything.
     var $ = cheerio.load(response.data);
     $("article h2").each(function (i, element) {
@@ -28,18 +29,18 @@ app.get("/scrape", function (req, res) {
       // attr("href");
 
       db.Article.create(result)
-        .then(function(dbArticle) {
+        .then(function (dbArticle) {
           // View the added result in the console
           console.log(dbArticle);
         })
-        .catch(function(err) {
+        .catch(function (err) {
           // If an error occurred, send it to the client
           return res.json(err);
         });
     });
     res.send("complete");
-    });
   });
+});
 
 
 
