@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://ckeabcuitino5:Emmabelle24@ds119755.mlab.com:19755/heroku_1sz06gp2",
+  process.env.MONGODB_URI || "mongodb://ckeabcuitino5:emmabelle24@ds119755.mlab.com:19755/heroku_1sz06gp2",
   {
     useMongoClient: true
   });
